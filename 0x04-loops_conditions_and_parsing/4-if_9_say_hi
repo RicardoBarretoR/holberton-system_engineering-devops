@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+#  this script prints "holberton school" + hi
+counter=0
+while [ $counter -lt 10 ]
+do
+	if [ $counter -eq 9 ]
+	then
+		echo "Hi"
+		echo "Holberton School"
+	break
+	fi
+	echo "Holberton School"
+	((counter++))
+done
