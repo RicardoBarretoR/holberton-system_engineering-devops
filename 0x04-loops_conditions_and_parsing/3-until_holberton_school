@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#displays HBTON 10 times with until
+i=0
+until [ $i -eq 10 ]
+do
+    echo "Holberton school"
+    i=$((i + 1))
+done
