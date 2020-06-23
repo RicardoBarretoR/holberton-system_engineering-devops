@@ -3,8 +3,8 @@
 #With a sleep 2 in between each iteration
 #I am invincible!!! when receiving a SIGTERM signal
 const=0
-trap 'echo "I am invincible!!"' SIGTERM
-while [ $const ];do
-    echo 'To infinity and beyond'
+while [ $const -eq 0 ]; do
+    trap 'echo "I am invincible!!!"' SIGTERM
+    echo "To infinity and beyond"
     sleep 2
 done
