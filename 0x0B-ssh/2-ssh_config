@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+SendEnv LANG LC_*
+HashKnownHosts yes
+GSSAPIAuthentication yes
+GSSAPIDelegateCredentials no
+PasswordAuthentication no
+IdentityFile ~/.ssh/holberton
