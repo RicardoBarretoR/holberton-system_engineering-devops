@@ -2,5 +2,7 @@
 #Script that install Nginx Web Server
 sudo apt-get update
 sudo apt-get -y install nginx
+sudo ufw app list
+sudo ufw allow 'Nginx HTTP'
 echo 'Holberton School' > /var/www/html/index.html
-sudo service nginx start
+service nginx start
