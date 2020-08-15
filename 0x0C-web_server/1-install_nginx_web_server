@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 #Script that install Nginx Web Server
+#./0-transfer_file 1-install_nginx_web_server 35.185.28.243 ubuntu ~/.ssh/id_rsa
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo ufw app list
-sudo ufw allow 'Nginx HTTP'
 echo 'Holberton School' > /var/www/html/index.html
-service nginx start
+sudo service nginx restart
