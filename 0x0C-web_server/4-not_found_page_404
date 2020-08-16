@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+#Script that install Nginx Web Server
+#./0-transfer_file 1-install_nginx_web_server 35.185.28.243 ubuntu ~/.ssh/id_rsa
+sudo apt-get -y update
+sudo apt-get -y install nginx
+echo 'Holberton School' > /var/www/html/index.html
+sudo sed -i '46i rewrite ^/redirect_me https://www.youtube.com/watch?v=QH2-TGUlwu4 permanent;' /etc/nginx/sites-available/default
+sudo echo "Ceci n'est pas une page" | sudo tee /usr/share/nginx/html/custom_404.html
+
+sudo sed -i '35 a\ \terror_page 404 /custom_404.html;\n\tlocation = /custom_404.html {\n\t\troot /usr/share/nginx/html;\n\t\tinternal;\n\t}' /etc/nginx/sites-enabled/default
+
+sudo service nginx restart
+ 
