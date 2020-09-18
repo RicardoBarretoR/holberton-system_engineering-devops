@@ -1,13 +1,10 @@
 #!/usr/bin/python3
-"""Function that queries the Reddit API"""
+"""Parses the title of all hot articles, prints a sorted count"""
 import operator
 import requests
 
 
 def count_words(subreddit, word_list, dict_list={}, after=''):
-    """
-    parses the title of all hot articles, and prints a sorted count
-    """
     url = 'https://www.reddit.com/r/'+subreddit+'/hot.json?after='+after
     json = requests.get(url, headers={'user-agent': 'Mozilla/5.0'
                                                     '(X11; Linux x86_64)'
