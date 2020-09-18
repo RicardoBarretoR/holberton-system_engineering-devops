@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """Function that queries the Reddit API"""
-import requests
 import operator
+import requests
 
 
 def count_words(subreddit, word_list, dict_list={}, after=''):
