@@ -6,12 +6,7 @@ import requests
 
 def count_words(subreddit, word_list, dict_list={}, after=''):
     url = 'https://www.reddit.com/r/'+subreddit+'/hot.json?after='+after
-    json = requests.get(url, headers={'user-agent': 'Mozilla/5.0'
-                                                    '(X11; Linux x86_64)'
-                                                    'AppleWebKit/537.36'
-                                                    '(KHTML, like Gecko)'
-                                                    'Chrome/51.0.2704.103'
-                                                    'Safari/537.36'}).json()
+    json = requests.get(url, headers={'user-agent': 'Mozilla/5.0'}).json()
     if 'error' in json or json['data']['children'] == []:
         return None
     if len(dict_list) == 0:
