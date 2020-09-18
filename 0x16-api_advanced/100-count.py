@@ -3,7 +3,6 @@
 Parses the title of all hot articles, prints a sorted count
 """
 
-
 import operator
 import requests
 
