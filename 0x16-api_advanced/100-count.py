@@ -11,6 +11,7 @@ import requests
 def count_words(subreddit, word_list, dict_list={}, after=''):
     url = 'https://www.reddit.com/r/'+subreddit+'/hot.json?after='+after
     json = requests.get(url, headers={'user-agent': 'Mozilla/5.0'}).json()
+
     if 'error' in json or json['data']['children'] == []:
         return None
 
