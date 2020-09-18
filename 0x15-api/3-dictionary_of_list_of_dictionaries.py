@@ -2,16 +2,24 @@
 """export data in the JSON format"""
 import json
 import requests
+from sys import argv
 
 if __name__ == '__main__':
-    url = "https://jsonplaceholder.typicode.com/"
-    users = requests.get(url + 'users').json()
+    url = 'https://jsonplaceholder.typicode.com/users/'
+    users = requests.get(url).json()
+    allTasks = {}
+    for user in users:
+        url = 'https://jsonplaceholder.typicode.com/todos?userId=' +\
+               str(user['id'])
+        tasks = requests.get(url).json()
+        ls = []
+        for task in tasks:
+            dic = {}
+            dic['task'] = task['title']
+            dic['completed'] = task['completed']
+            dic['username'] = user['username']
+            ls.append(dic)
+        allTasks[user['id']] = ls
 
-with open("todo_all_employees.json", 'w') as f:
-        json.dump({user.get("id"): [{
-            "task": O.get("title"),
-            "complted": O.get("completed"),
-            "username": user.get("username")
-        } for O in requests.get(url + "todos",
-                                params={'userId': user.get("id")}).json()]
-        for user in users}, f)
+    with open('todo_all_employees.json', 'w') as f:
+        json.dump(allTasks, f)
